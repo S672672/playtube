@@ -20,18 +20,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const searchQuery = query ? query : "trending videos";
+    console.log('Searching for:', searchQuery); 
     const response = await axios.get<ApiResponse>(BASE_URL, {
       params: {
         part: "snippet",
         q: searchQuery,
         type: "video",
         key: API_KEY,
-        maxResults: 20, 
+        maxResults: 20,
       },
     });
-
     res.status(200).json(response.data);
-  } catch {
+  } catch (error) {
+    console.error('Error fetching videos:', error); 
     res.status(500).json({ error: "Failed to fetch videos" });
   }
 }
