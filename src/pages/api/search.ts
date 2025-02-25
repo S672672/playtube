@@ -15,7 +15,7 @@ type ApiResponse = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { query } = req.query;
-  const API_KEY = process.env.YOUTUBE_API_KEY;
+  const API_KEY = "AIzaSyDNmuvA5Z-NPlMAnc3tOMZSS7ruKst9EnU";
   const BASE_URL = "https://www.googleapis.com/youtube/v3/search";
 
   try {
