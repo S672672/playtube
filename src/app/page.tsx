@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import VideoPlayer from "../components/VIdeoPlayer";
+import Image from "next/image";
 
 type Video = {
   id: { videoId: string };
@@ -50,7 +51,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-[url('/background-pattern.svg')] opacity-20 blur-lg"></div>
 
       <h1 className="relative text-4xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-yellow-500">
-          PlayTube 🎥
+          PlayeTube 🎥
       </h1>
 
       
@@ -109,7 +110,7 @@ export default function Home() {
                   onClick={() => setSelectedVideo(video.id.videoId)}
                   className="cursor-pointer p-4 rounded-lg bg-gray-800 hover:bg-gray-700 shadow-lg transition duration-300 transform hover:scale-105"
                 >
-                  <img
+                  <Image
                     src={video.snippet.thumbnails.medium.url}
                     alt={video.snippet.title}
                     className="rounded-lg"
